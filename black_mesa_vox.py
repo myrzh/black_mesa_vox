@@ -2,8 +2,19 @@ import re, sys
 from playsound import playsound
 
 
+while True:
+    path0 = input("What audio files you want to use? Enter 'bms' to use Black Mesa files, enter 'hl1' to use Half-Life files: ")
+    if path0 == "bms":
+        path = "sounds_bms/"
+        break
+    elif path0 == "hl":
+        path = "sounds_hl/"
+        break
+    else:
+        print("Incorrect input! Try again")
+
 print("Enter the sentence so say the sentence")
-print('Enter "exit" to exit')
+print("Enter 'exit' to exit")
 
 while True:
     missing_words_arr = []
@@ -29,7 +40,7 @@ while True:
     print("Processing...")
     for i in words:
         try:
-            playsound("sounds/" + i + ".wav")
+            playsound(path + i + ".wav")
         except:
             missing_words_arr.append(i)
     print("Done!")
